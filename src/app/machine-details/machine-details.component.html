@@ -1,0 +1,231 @@
+<div (window:resize)="onResize($event)"></div>
+
+<div class="container-fluid">
+
+  <mat-grid-list [cols]="calcGridColumns()" rowHeight="50px">
+
+    <mat-grid-tile colspan="1" rowspan="7">
+      <mat-card class="dashboard-card">
+        <!-- <mat-card class="dashboard-card" (click)="openIssueDailog()"> -->
+        <mat-card-header>
+          <mat-card-title>
+            Motor
+
+            <div class="led-box">
+              <div class="led-green1" *ngIf="machineApiService.checked == true"></div>
+              <div class="led-red1" *ngIf="machineApiService.checked == false"></div>
+            </div>
+          </mat-card-title>
+
+          <div class="slide-position">
+            <mat-slide-toggle [color]="color" [checked]="machineApiService.checked" [disabled]="disabled"
+              (change)="onChange($event)">
+            </mat-slide-toggle>
+          </div>
+
+        </mat-card-header>
+
+        <mat-card-content>
+          <div class="card-content">
+
+            <!-- <div class="led-box">
+              <div class="led-green1" *ngIf="checked == true"></div>
+              <div class="led-red1" *ngIf="checked == false"></div>
+            </div> -->
+
+            <div class="motor-img">
+              <img src="assets/motor.png" height="150" width="300" align="middle" class="img-motor"
+                *ngIf="machineApiService.checked == false">
+
+              <img src="assets/motor_running.gif" height="150" width="300" align="middle" class="img-motor"
+                *ngIf="machineApiService.checked == true">
+            </div>
+          </div>
+
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="7">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Temperature
+          </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+
+          <div class="percentage">
+            <h2>{{machineApiService.Machine_Live_Array.Temp}} <span
+                style="font-size: 20px;font-family: Calibri; color: rgb(83, 83, 83);">&#8451;</span></h2>
+          </div>
+
+          <div id="TempGaugeChartID" [style.width.%]="100" [style.height.px]="200"></div>
+
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="calcLiveGridColumns()" rowspan="7">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Electricity Live ( volts )
+          </mat-card-title>
+
+          <div class="chart-overlap-text ">
+            <p>{{machineApiService.Machine_Live_Array.Energy_V1}} <span style="font-size: 25px; color: gray">v</span>
+            </p>
+          </div>
+        </mat-card-header>
+
+        <mat-card-content>
+          <div id="energyLiveChartID" [style.width.%]="100" [style.height.px]="220"></div>
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="7">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            OK / Reject
+          </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+
+          <div class="ok-reject">
+            <div class="ok-reject-icon color-green">
+              <mat-icon>thumb_up</mat-icon>
+            </div>
+
+            <div class="ok-icon-text">
+              <p>{{machineApiService.Machine_Live_Array.ok_count}}</p>
+            </div>
+          </div>
+
+          <div class="ok-reject">
+            <div class="ok-reject-icon color-red">
+              <mat-icon>thumb_down</mat-icon>
+            </div>
+
+            <div class="ok-icon-text">
+              <p>{{ machineApiService.Machine_Live_Array.reject_count }}</p>
+            </div>
+          </div>
+
+          <!-- <div class="content-text">
+            <p>{{machineApiService.Machine_Live_Array.ok_count}}</p>
+
+            <p>{{machineApiService.Machine_Live_Array.ok_count}} /
+              {{machineApiService.Machine_Live_Array.reject_count}}</p>
+          </div> -->
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="7">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            RPM
+          </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          <!-- <div id="chart-container">FusionCharts will render here</div> -->
+
+          <!-- <div class="content-text">
+          <p>{{machineApiService.Machine_Live_Array.Temp}}</p>
+        </div> -->
+          <!-- <div class="percentage">
+          <h2 class="hrtext">{{machineApiService.Machine_Live_Array.Temp}}</h2>
+        </div>
+
+        <div class="chart-alignment">
+          <fusioncharts width="200" height="200" type="thermometer" [dataSource]="dataSource"></fusioncharts>
+        </div> -->
+
+          <div class="percentage">
+            <h2>{{machineApiService.Machine_Live_Array.RPM}}</h2>
+          </div>
+
+          <div id="RPMGaugeChartID" [style.width.%]="100" [style.height.px]="200"></div>
+
+
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- <mat-grid-tile colspan="2" rowspan="7">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            RPM Live
+          </mat-card-title>
+
+          <div class="chart-overlap-text ">
+            <p>{{machineApiService.Machine_Live_Array.RPM}}</p>
+          </div>
+
+        </mat-card-header>
+
+        <mat-card-content>
+          <div id="rpmLiveChartID" [style.width.%]="100" [style.height.px]="220"></div>
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile> -->
+
+    <mat-grid-tile colspan="1" rowspan="7">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Contactor
+          </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+
+          <div class="content-text">
+            <p>{{machineApiService.Contactor}}</p>
+          </div>
+
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="7">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            MPCB
+          </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+          <div class="content-text">
+            <p>{{machineApiService.MPCB}}</p>
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+
+
+  </mat-grid-list>
+
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+
+</div>

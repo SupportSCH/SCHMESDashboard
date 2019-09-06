@@ -1,0 +1,448 @@
+<div mat-dialog-title>
+  AI / Machine Learning Input
+</div>
+
+<div mat-dialog-content>
+
+  <div class="base-skelton" *ngIf="machineApiService.Checkpoint == 'RPM_Stage_2'">
+
+    <div class="img-content">
+      <mat-card class="img-card">
+        <img src="assets/motor.jpg" height="200" width="200">
+      </mat-card>
+    </div>
+
+    <div class="issue-content">
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Caution
+          </div>
+
+          <div class="content-txt">
+            Stage 1 Speed Level Reached
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Precaution
+          </div>
+
+          <div class="content-txt">
+            Reduce the RPM Level to Normal
+          </div>
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="base-skelton" *ngIf="machineApiService.Checkpoint == 'RPM_Stage_3'">
+
+    <div class="img-content">
+      <mat-card class="img-card">
+        <img src="assets/motor.jpg" height="200" width="200">
+      </mat-card>
+    </div>
+
+    <div class="issue-content">
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Caution
+          </div>
+
+          <div class="content-txt">
+            Stage 2 Speed Level Reached
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Precaution
+          </div>
+
+          <div class="content-txt">
+            Check the Power Supply Fluctuation
+          </div>
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="base-skelton" *ngIf="machineApiService.Checkpoint == 'RPM_Stage_4'">
+
+    <div class="img-content">
+      <mat-card class="img-card">
+        <img src="assets/motor.jpg" height="200" width="200">
+      </mat-card>
+    </div>
+
+    <div class="issue-content">
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Caution
+          </div>
+
+          <div class="content-txt">
+            Abnormal
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Precaution
+          </div>
+
+          <div class="content-txt">
+            Danger / Auto Cutoff ( Machine will Shutdown Automatically for safety)
+          </div>
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TEMPERATURE -->
+  <div class="base-skelton" *ngIf="machineApiService.Checkpoint == 'TEMP_Stage_2'">
+
+    <div class="img-content">
+      <mat-card class="img-card">
+        <img src="assets/Temperature.png" height="200" width="200">
+      </mat-card>
+    </div>
+
+    <div class="issue-content">
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Caution
+          </div>
+
+          <div class="content-txt">
+            High Temperature
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Precaution
+          </div>
+
+          <div class="content-txt">
+            Reduce the Temperature Level
+          </div>
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="base-skelton" *ngIf="machineApiService.Checkpoint == 'TEMP_Stage_3'">
+
+    <div class="img-content">
+      <mat-card class="img-card">
+        <img src="assets/Temperature.png" height="200" width="200">
+      </mat-card>
+    </div>
+
+    <div class="issue-content">
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Caution
+          </div>
+
+          <div class="content-txt">
+              Over Current
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Precaution
+          </div>
+
+          <div class="content-txt">
+              Reduce the load level and check the current reading. Any abnormal condition manualy shutdown the machine.
+          </div>
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="base-skelton" *ngIf="machineApiService.Checkpoint == 'TEMP_Stage_4'">
+
+    <div class="img-content">
+      <mat-card class="img-card">
+        <img src="assets/Temperature.png" height="200" width="200">
+      </mat-card>
+    </div>
+
+    <div class="issue-content">
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Caution
+          </div>
+
+          <div class="content-txt">
+            Short Circuit
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Precaution
+          </div>
+
+          <div class="content-txt">
+            Danger / Auto Cutoff ( Machine will Shutdown Automatically for safety)
+          </div>
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONTACTOR -->
+  <div class="base-skelton" *ngIf="machineApiService.Checkpoint == 'CONTACTOR_Stage_2'">
+
+    <div class="img-content">
+      <mat-card class="img-card">
+        <img src="assets/Contactor.png" height="200" width="200">
+      </mat-card>
+    </div>
+
+    <div class="issue-content">
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Caution
+          </div>
+
+          <div class="content-txt">
+            Time for Coil Maintenance
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Precaution
+          </div>
+
+          <div class="content-txt">
+            Check the voltage reading
+          </div>
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="base-skelton" *ngIf="machineApiService.Checkpoint == 'CONTACTOR_Stage_3'">
+
+    <div class="img-content">
+      <mat-card class="img-card">
+        <img src="assets/Contactor.png" height="200" width="200">
+      </mat-card>
+    </div>
+
+    <div class="issue-content">
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Caution
+          </div>
+
+          <div class="content-txt">
+            Time for Bearing Maintenance
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Precaution
+          </div>
+
+          <div class="content-txt">
+            Reduce the load level and check the voltage reading.
+          </div>
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="base-skelton" *ngIf="machineApiService.Checkpoint == 'CONTACTOR_Stage_4'">
+
+    <div class="img-content">
+      <mat-card class="img-card">
+        <img src="assets/Contactor.png" height="200" width="200">
+      </mat-card>
+    </div>
+
+    <div class="issue-content">
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Caution
+          </div>
+
+          <div class="content-txt">
+            Time For Motor Replacement
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Precaution
+          </div>
+
+          <div class="content-txt">
+            Danger / Auto Cutoff ( Machine will Shutdown Automatically for safety)
+          </div>
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MPCB -->
+  <div class="base-skelton" *ngIf="machineApiService.Checkpoint == 'MPCB_Stage_2'">
+
+    <div class="img-content">
+      <mat-card class="img-card">
+        <img src="assets/MPCB.png" height="200" width="200">
+      </mat-card>
+    </div>
+
+    <div class="issue-content">
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Caution
+          </div>
+
+          <div class="content-txt">
+            Time for Coil Maintenance
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Precaution
+          </div>
+
+          <div class="content-txt">
+            Check the Current reading
+          </div>
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="base-skelton" *ngIf="machineApiService.Checkpoint == 'MPCB_Stage_3'">
+
+    <div class="img-content">
+      <mat-card class="img-card">
+        <img src="assets/MPCB.png" height="200" width="200">
+      </mat-card>
+    </div>
+
+    <div class="issue-content">
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Caution
+          </div>
+
+          <div class="content-txt">
+            Time for Contactor Maintenance
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Precaution
+          </div>
+
+          <div class="content-txt">
+            Reduce the load level and check the current reading. Any abnormal condition manualy shutdown the machine.
+          </div>
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="base-skelton" *ngIf="machineApiService.Checkpoint == 'MPCB_Stage_4'">
+
+    <div class="img-content">
+      <mat-card class="img-card">
+        <img src="assets/MPCB.png" height="200" width="200">
+      </mat-card>
+    </div>
+
+    <div class="issue-content">
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Caution
+          </div>
+
+          <div class="content-txt">
+            Time for Contactor Replacement
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="content-padding">
+        <mat-card>
+          <div class="heading-txt">
+            Precaution
+          </div>
+
+          <div class="content-txt">
+            Danger / Auto Cutoff ( Machine will Shutdown Automatically for safety)
+          </div>
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div mat-dialog-actions class="card-actions">
+  <button mat-raised-button [color]="'ok'" cdkFocusInitial (click)="Update()">Yes</button>
+  <button mat-raised-button [color]="'no'" cdkFocusInitial (click)="onNoClick()">No</button>
+  <button mat-raised-button [color]="'cancel'" (click)="onNoClick()">May Be</button>
+</div>

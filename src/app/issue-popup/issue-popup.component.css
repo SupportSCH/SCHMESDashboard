@@ -1,0 +1,52 @@
+.base-skelton {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+
+.img-content {}
+
+.img-card {
+    padding: 0px !important;
+}
+
+.issue-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.content-padding {
+    padding: 0px 16px 0px 16px;
+}
+
+.heading-txt {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.answer-txt {}
+
+.card-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.mat-ok {
+    background-color: #52af52;
+    color: white;
+}
+
+.mat-cancel {
+    background-color: #446e98;
+    color: white;
+}
+
+.mat-no {
+    background-color: #ef5e5e;
+    color: white;
+}
+
